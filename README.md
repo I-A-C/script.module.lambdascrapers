@@ -1,2 +1,6 @@
 # LambdaScrapers
-Scrapers Module for Exodus based add ons
+**Scraper Module for Exodus based add ons.**
+
+Usage
+
+

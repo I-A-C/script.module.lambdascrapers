@@ -1,0 +1,3 @@
+Lambdascrapers Module Changelog:
+1.1.0 - Merged Scrapers
+1.0.0 - Initial commit

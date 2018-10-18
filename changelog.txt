@@ -1,0 +1,16 @@
+Lambdascrapers Module Changelog:
+1.5.0
+-Updated provider settings.
+1.4.0
+- Added settings.  Providers can be be enabled/disabled.
+1.3.0
+- Updated Scrapers, Removed Duplicates
+1.2.0
+- Added some community submitted scrapers
+- General Scraper Housekeeping
+- Removed/Quarantined scrapers with duplicate self.baselinks
+- Removed/Quarantined scrapers that returned 404s or 503s
+- Added Modules directory
+
+1.1.0 - Merged Scrapers
+1.0.0 - Initial commit

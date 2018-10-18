@@ -27,6 +27,7 @@ class source:
         self.priority = 1
         self.language = ['en']
         self.domains = ['primewire.gr']
+        self.base_link = 'http://m.primewire.gr'        
 
         # Use the **mobile** version of the website, a bit less traffic needed from them.
         self.BASE_URL = 'http://m.primewire.gr'

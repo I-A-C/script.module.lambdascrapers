@@ -25,6 +25,7 @@ class source:
         self.priority = 1
         self.language = ['en']
         self.domains = ['putlocker.se', 'putlockertv.to']
+        self.base_link = 'https://www5.putlockertv.to'
 
         self.ALL_JS_PATTERN = '<script src=\"(/assets/min/public/all.js?.*?)\"'
         self.DEFAULT_ACCEPT = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'

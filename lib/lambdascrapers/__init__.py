@@ -68,14 +68,8 @@ def getAllHosters():
     return list(set(appendList))
 
 def getScraperFolder(scraper_source):
-    if scraper_source.lower() == 'all':
-        return 'sources_ALL'
-    if scraper_source.lower() == 'incursion':
-        return 'sources_incursion'
-    if scraper_source.lower() == 'placenta':
-        return 'sources_placenta'
-    if scraper_source.lower() == 'yoda':
-        return 'sources_yoda'
+    sourceSubFolders = [x[1] for x in os.walk(os.path.dirname(__file__))][0]
+    return [i for i in sourceSubFolders if scraper_source.lower() in i.lower()][0]
 
 def getModuleName(scraper_folders):
     nameList = []
@@ -83,5 +77,3 @@ def getModuleName(scraper_folders):
         try: nameList.append(s.split('_')[1].lower().title())
         except: pass
     return nameList
-
-

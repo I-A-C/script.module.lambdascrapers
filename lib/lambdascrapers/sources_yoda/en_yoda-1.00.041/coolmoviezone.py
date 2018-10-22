@@ -13,7 +13,7 @@
 # Addon Provider: Supremacy
 
 import re,traceback,urllib,urlparse
-import resolveurl as urlresolver
+import resolveurl
 
 from resources.lib.modules import cleantitle
 from resources.lib.modules import client

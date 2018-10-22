@@ -104,6 +104,7 @@
         <setting id="provider.openloadmovies" type="bool" label="OPENLOADMOVIES" default="false" /> <!--Yoda-->
         <setting id="provider.ororo" type="bool" label="ORORO" default="false" />
         <setting id="provider.plocker" type="bool" label="PLOCKER" default="false" />
+        <setting id="provider.popcorn" type="bool" label="POPCORN" default="false" /> <!--Jewbmx-->
         <setting id="provider.primewire" type="bool" label="PRIMEWIRE" default="false" />
         <setting id="provider.projectfree" type="bool" label="PROJECTFREE" default="false" />
         <setting id="provider.pron" type="bool" label="PRON" default="false" />

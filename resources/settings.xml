@@ -95,7 +95,6 @@
         <setting id="provider.myputlock" type="bool" label="MYPUTLOCK" default="false" /> <!--Placenta-->
         <setting id="provider.myputlocker" type="bool" label="MYPUTLOCKER" default="false" /> <!--Jewbmx-->
         <setting id="provider.myseriesfree" type="bool" label="MYSERIESFREE" default="false" /> <!--Jewbmx-->
-        <setting id="provider.myvideolink" type="bool" label="MYVIDEOLINK" default="false" /> <!--Jewbmx-->
         <setting id="provider.mywatchseries" type="bool" label="MYWATCHSERIES" default="false" />
 <!--        <setting id="provider.mzmovies" type="bool" label="MZMOVIES" default="false" />--> <!--Yoda-->
 <!--        <setting id="provider.onlinedizi" type="bool" label="ONLINEDIZI" default="false" />--> <!--Yoda-->
@@ -216,7 +215,7 @@
         <setting id="provider.gomovies" type="bool" label="GOMOVIE" default="false" />
 <!--        <setting id="provider.hevcfilm" type="bool" label="HEVCFILM" default="false" />--> <!--Yoda-->
         <setting id="provider.moviesonline" type="bool" label="MOVIESONLINE" default="false" />
-        <setting id="provider.myvideolink" type="bool" label="MYVIDEOLINK" default="false" />
+        <setting id="provider.myvideolink" type="bool" label="MYVIDEOLINK" default="false" /> <!--Jewbmx-->
         <setting id="provider.phazeddl" type="bool" label="PHAZEDLL" default="false" />
         <setting id="provider.power" type="bool" label="POWER" default="false" />
 <!--        <setting id="provider.releasebb" type="bool" label="RELEASEBB" default="false" />-->

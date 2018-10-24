@@ -131,6 +131,7 @@
         <setting id="provider.tvbox" type="bool" label="TVBOX" default="false" />
         <setting id="provider.uhd" type="bool" label="UHD" default="false" /> <!--Placenta-->
         <setting id="provider.videoscraper" type="bool" label="VIDEOSCRAPER" default="false" />
+        <setting id="provider.vidics" type="bool" label="VIDICS" default="false" /><!-- test-->
         <setting id="provider.vioozfree" type="bool" label="VIOOZFREE" default="false" /> <!--Yoda-->
         <setting id="provider.vodly" type="bool" label="VODLY" default="false" />
         <setting id="provider.watch32" type="bool" label="WATCH32" default="false" />

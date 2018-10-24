@@ -83,8 +83,8 @@ if mode == "Defaults":
     'cartoonhd','cmovies','coolmoviezone','cooltv','darewatch','divxcrawler','dltube','einthusan',
     'filmxy','flenix','flixanity','fmovies','freefmovies','freeputlockers','furk','genvideos','gogoanime',
     'gowatchseries','hackimdb','hdpopcorns','icefilms','icouchtuner','iwatchflixxyz','kattv','l23movies','library',
-    'm4ufree','megahd','movie4uch','moviesplanet','myputlock','mywatchseries','odb','openloadmovie','ororo',
+    'm4ufree','megahd','movie4uch','moviesplanet','myputlock','myvideolink','mywatchseries','odb','openloadmovie','ororo',
     'plocker','popcorn','primewire','projectfree','pron','putlocker','rajahoki88','reddit','seehd','series9','seriesfree',
-    'seriesonline','sezonlukdizi','showbox','solarmoviez','streamlord','tvbox','videoscraper',
+    'seriesonline','sezonlukdizi','showbox','solarmoviez','streamlord','tvbox','videoscraper','vidics',
     'vodly','watch32','watchonline','watchseries','xmovies','xwatchseries','ymovies']
     toggleAll(params['setting'], params['open_id'], sourcelist)

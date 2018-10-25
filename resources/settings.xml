@@ -2,7 +2,7 @@
 <settings>
     <category label="Modules">
         <setting type="sep" />
-        <setting id="module.provider" label="Choose Module Scraper" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ScraperChoice)" default=" Lambdascrapers" />
+        <setting id="module.provider" label="Choose Module Scraper" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ScraperChoice)" default="" />
         <setting label="Enable All Providers (for current Module)" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ToggleProviderAll&amp;action=EnableModuleAll)" option="close"/>
         <setting label="Disable All Providers (for current Module)" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ToggleProviderAll&amp;action=DisableModuleAll)" option="close"/>
         <setting label="Disable All Providers" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAll&amp;setting=false&amp;open_id=1.1)" option="close"/>

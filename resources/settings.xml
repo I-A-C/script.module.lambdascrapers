@@ -146,7 +146,7 @@
         <setting id="provider.ymovies" type="bool" label="YMOVIES" default="false" />
     </category>
 
-    <category label="Foreign">\
+    <category label="Foreign">
         <setting label="Disable All Foreign Providers" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAllForeign&amp;setting=false&amp;open_id='1.1')"/>
         <setting label="Enable All Foreign Providers" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAllForeign&amp;setting=true&amp;open_id='1.2')"/>
         <setting label="German" type="lsep" />
@@ -203,7 +203,7 @@
         <setting id="provider.trt" type="bool" label="TRT" default="false" />
     </category>
 
-    <category label="Debrid Only">\
+    <category label="Debrid Only">
         <setting label="Disable All Debrid Providers" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAllDebrid&amp;setting=false&amp;open_id='1.1')"/>
         <setting label="Enable All Debrid Providers" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAllDebrid&amp;setting=true&amp;open_id='1.2')"/>
         <setting type="sep" />

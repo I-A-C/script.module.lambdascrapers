@@ -11,7 +11,7 @@ import xbmcaddon
 from lambdascrapers import getAllHosters
 
 '''
-Temporary service to TRY to make some file changes, and then remove itself from running again.
+Temporary service to TRY to make some file changes, and then prevent itself from running again.
 '''
 
 ADDON = xbmcaddon.Addon()

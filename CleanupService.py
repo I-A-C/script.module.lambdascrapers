@@ -16,26 +16,28 @@ Temporary service to TRY to make some file changes, and then prevent itself from
 
 ADDON = xbmcaddon.Addon()
 
-# 1) Do the actual file changes:
+# 1) Do the actual housekeeping changes.
 try:
     profileFolderPath = xbmc.translatePath(ADDON.getAddonInfo('profile')).decode('utf-8')
     settingsPath = os.path.join(profileFolderPath, 'settings.xml')
 
-    # Rewrite the user settings file, ignoring all lines with obsolete providers.
+    # We rewrite the user settings file while ignoring all obsolete providers.
     if xbmcvfs.exists(settingsPath):
-        currentProviders = set(getAllHosters())
         with open(settingsPath, 'r+') as settingsFile:
-            originalLines = settingsFile.readlines()
-            settingsFile.seek(0)
-            for line in originalLines:
-                if 'provider.' in line:
-                    if line.split('.', 1)[1] in currentProviders:
-                        settingsFile.write(line) # Keep this valid provider.
-                    else:
-                        pass # Ignore this obsolete provider.
-                else:
-                    settingsFile.write(line) # Keep all other settings lines.
-            settingsFile.truncate()
+            # Parse an XML tree from the settings file.
+            from xml.etree import ElementTree
+            tree = ElementTree.fromstring(settingsFile.read())
+            currentProviders = set(getAllHosters())
+            if len(currentProviders) > 0:
+                # Traverse the tree backwards so we can safely remove elements on the go.
+                for element in reversed(tree):
+                    id = element.get('id')
+                    if id and id.startswith('provider.') and id.split('.', 1)[1] not in currentProviders:
+                        tree.remove(element)
+                # Dump the cleaned up XML tree back to the file.
+                settingsFile.seek(0)
+                settingsFile.write(ElementTree.tostring(tree))
+                settingsFile.truncate()
 except:
     pass
 
@@ -45,13 +47,14 @@ try:
     addonFolderPath = xbmc.translatePath(ADDON.getAddonInfo('path')).decode('utf-8')
     addonXMLPath = os.path.join(addonFolderPath, 'addon.xml')
 
-    # Disabling is done by commenting out the XML line with the service extension.
+    # Disabling is done by commenting out the XML line with the service extension so it doesn't run anymore.
     with open(addonXMLPath, 'r+') as addonXMLFile:
-        xml = addonXMLFile.read()
+        xmlText = addonXMLFile.read()
         serviceFilename = 'CleanupService\.py'
-        pattern = r'(<\s*?extension.*?' + serviceFilename + '.*?\s*?/\s*?>)'
-        updatedXML = re.sub(pattern, r'<!--\1-->', xml, count=1, flags=re.IGNORECASE)
+        pattern = r'(<\s*?extension.*?' + serviceFilename + '.*?>)'
+        updatedXML = re.sub(pattern, r'<!--\1-->', xmlText, count=1, flags=re.IGNORECASE)
         addonXMLFile.seek(0)
         addonXMLFile.write(updatedXML)
+        addonXMLFile.truncate()
 except:
     pass

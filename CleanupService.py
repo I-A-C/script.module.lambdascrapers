@@ -8,7 +8,7 @@ import xbmc
 import xbmcvfs
 import xbmcaddon
 
-from lambdascrapers import getAllHosters
+from lib.lambdascrapers import getAllHosters
 
 '''
 Temporary service to TRY to make some file changes, and then prevent itself from running again.

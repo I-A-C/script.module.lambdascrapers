@@ -9,6 +9,7 @@ import xbmcvfs
 import xbmcaddon
 
 from lib.lambdascrapers import getAllHosters
+from lib.lambdascrapers import providerSources
 
 '''
 Temporary service to TRY to make some file changes, and then prevent itself from running again.
@@ -38,6 +39,10 @@ try:
                 settingsFile.seek(0)
                 settingsFile.write(ElementTree.tostring(tree))
                 settingsFile.truncate()
+                                
+            # Reset obsolete module providers to Lambdascrapers.
+            if ADDON.getSetting('module.provider') not in providerSources():
+                ADDON.setSetting('module.provider', ' Lambdascrapers')
 except:
     pass
 

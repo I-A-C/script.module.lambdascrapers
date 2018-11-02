@@ -40,9 +40,9 @@ try:
                 settingsFile.write(ElementTree.tostring(tree))
                 settingsFile.truncate()
                                 
-            # Reset obsolete module providers to Lambdascrapers.
-            if ADDON.getSetting('module.provider') not in providerSources():
-                ADDON.setSetting('module.provider', ' Lambdascrapers')
+    # Reset obsolete module providers to Lambdascrapers.
+    if ADDON.getSetting('module.provider') not in providerSources():
+        ADDON.setSetting('module.provider', ' Lambdascrapers')
 except:
     pass
 

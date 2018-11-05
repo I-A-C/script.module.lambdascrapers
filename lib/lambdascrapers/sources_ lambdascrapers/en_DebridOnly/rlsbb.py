@@ -12,6 +12,8 @@
 # Addon id: plugin.video.placenta
 # Addon Provider: Mr.Blamo
 
+# Updated for Lambdascrapers 2018-9-5
+
 import re,traceback,urllib,urlparse,json
 
 from resources.lib.modules import cleantitle

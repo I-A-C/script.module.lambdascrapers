@@ -1,14 +1,12 @@
 # -*- coding: UTF-8 -*-
-#######################################################################
- # ----------------------------------------------------------------------------
- # "THE BEER-WARE LICENSE" (Revision 42):
- # @tantrumdev wrote this file.  As long as you retain this notice you
- # can do whatever you want with this stuff. If we meet some day, and you think
- # this stuff is worth it, you can buy me a beer in return. - Muad'Dib
- # ----------------------------------------------------------------------------
-#######################################################################
-# -Cleaned and Checked on 10-10-2018 by JewBMX in Yoda.
+'''
+    fmovies scraper for Exodus forks.
+    Nov 9 2018 - Checked
+    Oct 10 2018 - Cleaned and Checked
 
+    Updated and refactored by someone.
+    Originally created by others.
+'''
 import re,urllib,urlparse,json,base64,time
 
 from resources.lib.modules import cleantitle

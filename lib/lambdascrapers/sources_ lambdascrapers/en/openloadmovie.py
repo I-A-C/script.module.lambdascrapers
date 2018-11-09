@@ -1,6 +1,12 @@
 # -*- coding: UTF-8 -*-
-# -Cleaned and Checked on 10-10-2018 by JewBMX in Yoda.
+'''
+    openloadmovie scraper for Exodus forks.
+    Nov 9 2018 - Checked
+    Oct 10 2018 - Cleaned and Checked
 
+    Updated and refactored by someone.
+    Originally created by others.
+'''
 import re
 import urllib
 import urlparse

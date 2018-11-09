@@ -1,9 +1,11 @@
 # -*- coding: UTF-8 -*-
 '''
-    Vidics scraper for Exodus forks.
-    Oct 23 2018
+    vidics scraper for Exodus forks.
+    Nov 9 2018 - Checked
+    Oct 23 2018 - Cleaned and Checked
 
-    Created by someone.
+    Updated and refactored by someone.
+    Originally created by others.
 '''
 import re
 import requests

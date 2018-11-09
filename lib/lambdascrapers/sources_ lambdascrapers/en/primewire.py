@@ -1,9 +1,11 @@
 # -*- coding: UTF-8 -*-
 '''
     Primewire-variant scraper for Exodus forks.
-    Sep 23 2018
+    Nov 9 2018 - Checked
+    Sep 23 2018 - Cleaned and Checked.
 
-    Created by someone.
+    Updated and refactored by someone.
+    Originally created by others.
 '''
 import re
 import requests

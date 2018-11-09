@@ -1,19 +1,11 @@
 # -*- coding: UTF-8 -*-
-#######################################################################
- # ----------------------------------------------------------------------------
- # "THE BEER-WARE LICENSE" (Revision 42):
- # @Daddy_Blamo wrote this file.  As long as you retain this notice you
- # can do whatever you want with this stuff. If we meet some day, and you think
- # this stuff is worth it, you can buy me a beer in return. - Muad'Dib
- # ----------------------------------------------------------------------------
-#######################################################################
+'''
+    rlsbb scraper for Exodus forks.
+    Sep 5 2018 - Cleaned and Checked
 
-# Addon Name: Placenta
-# Addon id: plugin.video.placenta
-# Addon Provider: Mr.Blamo
-
-# Updated for Lambdascrapers 2018-9-5
-
+    Updated and refactored by someone.
+    Originally created by others.
+'''
 import re,traceback,urllib,urlparse,json
 
 from resources.lib.modules import cleantitle

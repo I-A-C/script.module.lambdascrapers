@@ -1,7 +1,9 @@
 # -*- coding: UTF-8 -*-
 '''
-    PutLocker scraper for Exodus forks.
-    Nov 06 2018
+    plocker scraper for Exodus forks.
+    Nov 9 2018 - Checked
+    Nov 06 2018 - Cleaned and Checked
+    Sep 22 2018 - Cleaned and Checked
 
     Updated and refactored by someone.
     Originally created by others.

@@ -81,7 +81,7 @@ if mode == "Defaults":
     sourcelist = ['4kmovieto','Hdmto','bnwmovies',
     'cartoonhd','coolmoviezone','darewatch','divxcrawler',
     'fmovies','freefmovies','freeputlockers','furk',
-    'gowatchseries','hackimdb','hdpopcorns','iwatchflixxyz','kattv','library',
+    'gowatchseries','hdpopcorns','iwatchflixxyz','kattv','library',
     'moviesplanet','odb','openloadmovie','ororo',
     'plocker','primewire','putlocker','reddit','seehd','series9','seriesfree',
     'seriesonline','streamlord','tvbox','videoscraper','vidics',

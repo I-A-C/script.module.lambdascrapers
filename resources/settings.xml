@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-    <category label="Modules">
-        <setting type="sep" />
-        <setting id="module.provider" label="Choose Module Scraper" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ScraperChoice)" default="" />
-        <setting label="Enable All Providers (for current Module)" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ToggleProviderAll&amp;action=EnableModuleAll)" option="close"/>
-        <setting label="Disable All Providers (for current Module)" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ToggleProviderAll&amp;action=DisableModuleAll)" option="close"/>
-        <setting label="Disable All Providers" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAll&amp;setting=false&amp;open_id=1.1)" option="close"/>
-        <setting type="sep" />
-    </category>
+<!--    <category label="Modules">-->
+<!--        <setting type="sep" />-->
+<!--        <setting id="module.provider" label="Choose Module Scraper" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ScraperChoice)" default="" />-->
+<!--        <setting label="Enable All Providers (for current Module)" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ToggleProviderAll&amp;action=EnableModuleAll)" option="close"/>-->
+<!--        <setting label="Disable All Providers (for current Module)" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ToggleProviderAll&amp;action=DisableModuleAll)" option="close"/>-->
+<!--        <setting label="Disable All Providers" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAll&amp;setting=false&amp;open_id=1.1)" option="close"/>-->
+<!--        <setting type="sep" />-->
+<!--    </category>-->
 
     <category label="Providers">
         <setting type="sep" />
-        <setting label="Disable All Providers" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAll&amp;setting=false&amp;open_id=1.1)" option="close"/>
-        <setting label="Enable All Providers" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAll&amp;setting=true&amp;open_id=1.2)" option="close"/>
-        <setting label="Lambda Scrapers Default" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=Defaults&amp;setting=true&amp;open_id='1.2')"/>
+        <setting id="module.provider" label="Choose Module Scraper" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ScraperChoice)" default=" Lambdascrapers" />
+        <setting type="sep" />
+        <setting label="Lambda Scrapers Default Providers" type="action" option="close" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=Defaults&amp;setting=true&amp;open_id='1.2')"/>
+        <setting label="Disable All Providers" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAll&amp;setting=false&amp;open_id=0.1)" option="close"/>
+<!--        <setting label="Enable All Providers" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=toggleAll&amp;setting=true&amp;open_id=1.2)" option="close"/>-->
+        <setting label="Enable All Providers (for current Module Scraper)" type="action" action="RunPlugin(plugin://script.module.lambdascrapers/?mode=ToggleProviderAll&amp;action=EnableModuleAll)" option="close"/>
         <setting type="sep" />
         <setting id="provider.1movie" type="bool" label="$NUMBER[1]MOVIE" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.4kmovieto" type="bool" label="$NUMBER[4]KMOVIETO" default="false" /> <!--Lambdascrapers-->
+        <setting id="provider.4kmovieto" type="bool" label="$NUMBER[4]KMOVIETO" default="true" /> <!--Lambdascrapers-->
         <setting id="provider.123fox" type="bool" label="$NUMBER[123]FOX" default="false" /> <!--Placenta-->
         <setting id="provider.123hbo" type="bool" label="$NUMBER[123]HBO" default="false" /> <!--Placenta-->
         <setting id="provider.123hulu" type="bool" label="$NUMBER[123]HULU" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
@@ -32,17 +35,17 @@
         <setting id="provider.allucen" type="bool" label="ALLUCEN" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.animeultima" type="bool" label="ANIMEULTIMA" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.bmoviez" type="bool" label="BMOVIEZ" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.bnwmovies" type="bool" label="BNWMOVIES" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.bnwmovies" type="bool" label="BNWMOVIES" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.bob" type="bool" label="BOB" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.cafehulu" type="bool" label="CAFEHULU" default="false" /> <!--Placenta-->
-        <setting id="provider.cartoonhd" type="bool" label="CARTOONHD" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.cartoonhd" type="bool" label="CARTOONHD" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.cinemamega" type="bool" label="CINEMAMEGA" default="false" /> <!--Placenta-->
         <setting id="provider.cmovie" type="bool" label="CMOVIE" default="false" /> <!--Placenta-->
         <setting id="provider.cmovies" type="bool" label="CMOVIES" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.coolmoviezone" type="bool" label="COOLMOVIEZONE" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.coolmoviezone" type="bool" label="COOLMOVIEZONE" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.cooltv" type="bool" label="COOLTV" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.darewatch" type="bool" label="DAREWATCH" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.divxcrawler" type="bool" label="DIVXCRAWLER" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.darewatch" type="bool" label="DAREWATCH" default="true" /> <!--Lambdascrapers-->
+        <setting id="provider.divxcrawler" type="bool" label="DIVXCRAWLER" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.dltube" type="bool" label="DLTUBE" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.einthusan" type="bool" label="EINTHUSAN" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
         <setting id="provider.filmxy" type="bool" label="FILMXY" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
@@ -50,25 +53,25 @@
         <setting id="provider.flix" type="bool" label="FLIX" default="false" /> <!--Placenta-->
         <setting id="provider.flixanity" type="bool" label="FLIXANITY" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.fmovied6" type="bool" label="FMOVIED6" default="false" /> <!--Placenta-->
-        <setting id="provider.fmovies" type="bool" label="FMOVIES" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.freefmovies" type="bool" label="FREEFMOVIES" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.freeputlockers" type="bool" label="FREEPUTLOCKERS" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.furk" type="bool" label="FURK" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.fmovies" type="bool" label="FMOVIES" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.freefmovies" type="bool" label="FREEFMOVIES" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.freeputlockers" type="bool" label="FREEPUTLOCKERS" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.furk" type="bool" label="FURK" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.genvideos" type="bool" label="GENVIDEOS" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.gogoanime" type="bool" label="GOGOANIME" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.gowatchseries" type="bool" label="GOWATCHSERIES" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.gowatchseries" type="bool" label="GOWATCHSERIES" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.hd" type="bool" label="HD" default="false" /> <!--Placenta-->
         <setting id="provider.hdmega" type="bool" label="HDMEGA" default="false" /> <!--Placenta-->
-        <setting id="provider.hdmto" type="bool" label="HDMTO" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.hdpopcorns" type="bool" label="HDPOPCORNS" default="false" /> <!--Lambdascrapers-->
+        <setting id="provider.hdmto" type="bool" label="HDMTO" default="true" /> <!--Lambdascrapers-->
+        <setting id="provider.hdpopcorns" type="bool" label="HDPOPCORNS" default="true" /> <!--Lambdascrapers-->
         <setting id="provider.huluvip" type="bool" label="HULUVIP" default="false" /> <!--Placenta-->
         <setting id="provider.icefilms" type="bool" label="ICEFILMS" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.icouchtuner" type="bool" label="ICOUCHTUNER" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.iwatchflixxyz" type="bool" label="IWATCHFLIXXYZ" default="false" /><!--Lambdascrapers-->
+        <setting id="provider.iwatchflixxyz" type="bool" label="IWATCHFLIXXYZ" default="true" /><!--Lambdascrapers-->
 <!--        <setting id="provider.imdark" type="bool" label="IMDARK" default="false" />--> <!--Incursion-->
-        <setting id="provider.kattv" type="bool" label="KATTV" default="false" /> <!--Lambdascrapers-->
+        <setting id="provider.kattv" type="bool" label="KATTV" default="true" /> <!--Lambdascrapers-->
         <setting id="provider.l23movies" type="bool" label="L23MOVIES" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.library" type="bool" label="LIBRARY" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.library" type="bool" label="LIBRARY" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.locker" type="bool" label="LOCKER" default="false" /> <!--Placenta-->
         <setting id="provider.m4ufree" type="bool" label="M4UFREE" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.megahd" type="bool" label="MEGAHD" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
@@ -78,47 +81,47 @@
         <setting id="provider.movie4kto" type="bool" label="MOVIE4KTO" default="false" /> <!--Placenta-->
         <setting id="provider.movie4uch" type="bool" label="MOVIE4UCH" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
         <setting id="provider.moviesgold" type="bool" label="MOVIESGOLD" default="false" /> <!--Placenta-->
-        <setting id="provider.moviesplanet" type="bool" label="MOVIESPLANET" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
+        <setting id="provider.moviesplanet" type="bool" label="MOVIESPLANET" default="true" /> <!--Incursion--> <!--Lambdascrapers-->
         <setting id="provider.moviexk" type="bool" label="MOVIEXK" default="false" /> <!--Placenta-->
         <setting id="provider.myputlock" type="bool" label="MYPUTLOCK" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.mywatchseries" type="bool" label="MYWATCHSERIES" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
 <!--        <setting id="provider.mzmovies" type="bool" label="MZMOVIES" default="false" />--> <!--Incursion-->
-        <setting id="provider.odb" type="bool" label="ODB" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.openloadmovie" type="bool" label="OPENLOADMOVIE" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.ororo" type="bool" label="ORORO" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.plocker" type="bool" label="PLOCKER" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
+        <setting id="provider.odb" type="bool" label="ODB" default="true" /> <!--Lambdascrapers-->
+        <setting id="provider.openloadmovie" type="bool" label="OPENLOADMOVIE" default="true" /> <!--Lambdascrapers-->
+        <setting id="provider.ororo" type="bool" label="ORORO" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.plocker" type="bool" label="PLOCKER" default="true" /> <!--Incursion--> <!--Lambdascrapers-->
         <setting id="provider.popcorn" type="bool" label="POPCORN" default="false" /> <!--Incursion--> <!--Placenta-->
-        <setting id="provider.primewire" type="bool" label="PRIMEWIRE" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
+        <setting id="provider.primewire" type="bool" label="PRIMEWIRE" default="true" /> <!--Incursion--> <!--Lambdascrapers-->
         <setting id="provider.projectfree" type="bool" label="PROJECTFREE" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.pron" type="bool" label="PRON" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.putlocker" type="bool" label="PUTLOCKER" default="false" /><!--Lambdascrapers-->
+        <setting id="provider.putlocker" type="bool" label="PUTLOCKER" default="true" /><!--Lambdascrapers-->
         <setting id="provider.rajahoki88" type="bool" label="RAJAHOKI88" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.rarbg" type="bool" label="RARBG" default="false" /> <!--Placenta-->
-        <setting id="provider.reddit" type="bool" label="REDDIT" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.seehd" type="bool" label="SEEHD" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.series9" type="bool" label="SERIES9" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.seriesfree" type="bool" label="SERIESFREE" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
-        <setting id="provider.seriesonline" type="bool" label="SERIESONLINE" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.reddit" type="bool" label="REDDIT" default="true" /> <!--Lambdascrapers-->
+        <setting id="provider.seehd" type="bool" label="SEEHD" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.series9" type="bool" label="SERIES9" default="true" /> <!--Lambdascrapers-->
+        <setting id="provider.seriesfree" type="bool" label="SERIESFREE" default="true" /> <!--Incursion--> <!--Lambdascrapers-->
+        <setting id="provider.seriesonline" type="bool" label="SERIESONLINE" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.sezonlukdizi" type="bool" label="SEZONLUKDIZI" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.showbox" type="bool" label="SHOWBOX" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.solarmovie" type="bool" label="SOLARMOVIE" default="false" /> <!--Incursion--> <!--Placenta-->
         <setting id="provider.solarmoviez" type="bool" label="SOLARMOVIEZ" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.streamlord" type="bool" label="STREAMLORD" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.streamlord" type="bool" label="STREAMLORD" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.sunmovies" type="bool" label="SUNMOVIES" default="false" /> <!--Placenta--> <!--Placenta-->
         <setting id="provider.timewatch" type="bool" label="TIMETOWATCH" default="false" /> <!--Placenta--> <!--Placenta-->
-        <setting id="provider.tvbox" type="bool" label="TVBOX" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.tvbox" type="bool" label="TVBOX" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.uhd" type="bool" label="UHD" default="false" /> <!--Placenta-->
-        <setting id="provider.videoscraper" type="bool" label="VIDEOSCRAPER" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.vidics" type="bool" label="VIDICS" default="false" /><!-- test--> <!--Lambdascrapers-->
+        <setting id="provider.videoscraper" type="bool" label="VIDEOSCRAPER" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.vidics" type="bool" label="VIDICS" default="true" /><!-- test--> <!--Lambdascrapers-->
         <setting id="provider.vodly" type="bool" label="VODLY" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.watch32" type="bool" label="WATCH32" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
         <setting id="provider.watchit" type="bool" label="WATCHIT" default="false" /> <!--Placenta-->
         <setting id="provider.watchnew" type="bool" label="WATCHNEW" default="false" /> <!--Placenta-->
-        <setting id="provider.watchonline" type="bool" label="WATCHONLINE" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.watchseries" type="bool" label="WATCHSERIES" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.xmovies" type="bool" label="XMOVIES" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.xwatchseries" type="bool" label="XWATCHSERIES" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.ymovies" type="bool" label="YMOVIES" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
+        <setting id="provider.watchonline" type="bool" label="WATCHONLINE" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.watchseries" type="bool" label="WATCHSERIES" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.xmovies" type="bool" label="XMOVIES" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.xwatchseries" type="bool" label="XWATCHSERIES" default="true" /> <!--Lambdascrapers-->
+        <setting id="provider.ymovies" type="bool" label="YMOVIES" default="true" /> <!--Incursion--> <!--Lambdascrapers-->
     </category>
 
     <category label="Foreign">

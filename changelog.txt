@@ -1,4 +1,7 @@
 Lambdascrapers Module Changelog:
+1.7.0
+- Lambdascrapers module as default provider
+- Scraper fixes
 1.6.0
 - Module improvements
 - Added German and Polish providers

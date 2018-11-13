@@ -1,4 +1,6 @@
 Lambdascrapers Module Changelog:
+1.8.0
+- Remove nonperforming scraper from defaults
 1.7.0
 - Lambdascrapers module as default provider
 - Scraper fixes

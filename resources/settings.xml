@@ -67,7 +67,7 @@
         <setting id="provider.huluvip" type="bool" label="HULUVIP" default="false" /> <!--Placenta-->
         <setting id="provider.icefilms" type="bool" label="ICEFILMS" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.icouchtuner" type="bool" label="ICOUCHTUNER" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
-        <setting id="provider.iwatchflixxyz" type="bool" label="IWATCHFLIXXYZ" default="true" /><!--Lambdascrapers-->
+        <setting id="provider.iwatchflixxyz" type="bool" label="IWATCHFLIXXYZ" default="false" /><!--Lambdascrapers-->
 <!--        <setting id="provider.imdark" type="bool" label="IMDARK" default="false" />--> <!--Incursion-->
         <setting id="provider.kattv" type="bool" label="KATTV" default="true" /> <!--Lambdascrapers-->
         <setting id="provider.l23movies" type="bool" label="L23MOVIES" default="false" /> <!--Lambdascrapers-->

@@ -34,7 +34,6 @@
         <setting id="provider.allrls" type="bool" label="ALLRLS" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.allucen" type="bool" label="ALLUCEN" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.animeultima" type="bool" label="ANIMEULTIMA" default="false" /> <!--Lambdascrapers-->
-        <setting id="provider.bestmoviez" type="bool" label="BESTMOVIEZ" default="true" />
         <setting id="provider.bmoviez" type="bool" label="BMOVIEZ" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.bnwmovies" type="bool" label="BNWMOVIES" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.bob" type="bool" label="BOB" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
@@ -197,7 +196,6 @@
         <setting id="provider.directdl" type="bool" label="DIRECTDL" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.gomovies" type="bool" label="GOMOVIES" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
 <!--        <setting id="provider.hevcfilm" type="bool" label="HEVCFILM" default="false" />--> <!--Incursion--> <!--Placenta-->
-        <setting id="provider.moviesonline" type="bool" label="MOVIESONLINE" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.myvideolink" type="bool" label="MYVIDEOLINK" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.phazeddl" type="bool" label="PHAZEDLL" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.power" type="bool" label="POWER" default="false" /> <!--Lambdascrapers-->

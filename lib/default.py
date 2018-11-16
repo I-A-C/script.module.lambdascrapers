@@ -50,7 +50,7 @@ if mode == "toggleAll":
 
 if mode == "toggleAllDebrid":
     sourcelist = ['2ddl','300mbfilms','bestmoviez','ddls','ddlvalley','directdl','gomovies','hevcfilm',
-    'moviesonline','myvideolink','phazeddl','power','releasebb','RLSB','rlsbb','rlsmovies','rlsscn',
+    'myvideolink','phazeddl','power','releasebb','RLSB','rlsbb','rlsmovies','rlsscn',
     'scenerls','sceper','seriescr','tvbmoviez','tvrelease','ultrahd','ultrahdindir','wrzcraft']
     toggleAll(params['setting'], params['open_id'], sourcelist)
 

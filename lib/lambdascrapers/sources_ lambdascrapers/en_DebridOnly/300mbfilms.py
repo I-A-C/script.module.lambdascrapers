@@ -8,11 +8,7 @@
  # ----------------------------------------------------------------------------
 #######################################################################
 
-# Addon Name: Yoda
-# Addon id: plugin.video.Yoda
-# Addon Provider: Supremacy
-
-
+# -Cleaned and Checked on 11-13-2018 by JewBMX in Scrubs.
 
 import re,urllib,urlparse
 
@@ -27,7 +23,7 @@ class source:
         self.priority = 1
         self.language = ['en']
         self.domains = ['300mbfilms.co']
-        self.base_link = 'https://www.300mbfilms.co/'
+        self.base_link = 'https://300mbfilms.co' #https://www.300mbfilms.co
         self.search_link = '/search/%s/feed/rss2/'
 
     def movie(self, imdb, title, localtitle, aliases, year):

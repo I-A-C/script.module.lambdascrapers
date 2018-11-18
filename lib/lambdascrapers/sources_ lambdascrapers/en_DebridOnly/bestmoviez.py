@@ -8,9 +8,7 @@
  # ----------------------------------------------------------------------------
 #######################################################################
 
-# Addon Name: Placenta
-# Addon id: plugin.video.placenta
-# Addon Provider: Mr.Blamo
+# Scraper Checked and Fixed 11-08-2018 -JewBMX
 
 import re,urllib,urlparse
 
@@ -19,6 +17,7 @@ from resources.lib.modules import client
 from resources.lib.modules import debrid
 from resources.lib.modules import log_utils
 from resources.lib.modules import source_utils
+from resources.lib.modules import cfscrape
 
 # Working: https://www.best-moviez.ws/deadpool-2-2018-1080p-web-dl-dd5-1-h264-cmrg/
 # Working: https://www.best-moviez.ws/deadpool-2-2018
@@ -66,6 +65,7 @@ class source:
 	def sources(self, url, hostDict, hostprDict):
 		try:
 			sources = []
+			scraper = cfscrape.create_scraper()
 
 			if url == None: return sources
 
@@ -84,7 +84,7 @@ class source:
 			url = self.search_link % urllib.quote_plus(query)
 			url = urlparse.urljoin(self.base_link, url)
 			#log_utils.log('\n\n\n\n\n\nquery, url: %s, %s' % (query,url))
-			r = client.request(url)
+			r = scraper.get(url).content
 
 			
 			# grab the (only?) relevant div and cut off the footer

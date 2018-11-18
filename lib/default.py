@@ -50,7 +50,7 @@ if mode == "toggleAll":
 
 if mode == "toggleAllDebrid":
     sourcelist = ['2ddl','300mbfilms','bestmoviez','ddls','ddlvalley','directdl','gomovies','hevcfilm',
-    'moviesonline','myvideolink','phazeddl','power','releasebb','RLSB','rlsbb','rlsmovies','rlsscn',
+    'myvideolink','phazeddl','power','releasebb','RLSB','rlsbb','rlsmovies','rlsscn',
     'scenerls','sceper','seriescr','tvbmoviez','tvrelease','ultrahd','ultrahdindir','wrzcraft']
     toggleAll(params['setting'], params['open_id'], sourcelist)
 
@@ -78,11 +78,11 @@ if mode == "toggleAllForeign":
     toggleAll(params['setting'], params['open_id'], sourcelist)
 
 if mode == "Defaults":
-    sourcelist = ['4kmovieto','Hdmto','bnwmovies',
+    sourcelist = ['4kmovieto','1080P','bobmovies','bnwmovies',
     'cartoonhd','coolmoviezone','darewatch','divxcrawler',
-    'fmovies','freefmovies','freeputlockers','furk',
-    'gowatchseries','hdpopcorns','kattv','library',
-    'moviesplanet','odb','openloadmovie','ororo',
+    'fmovies','freefmovies','freeputlockers','furk','gostream',
+    'gowatchseries','Hdmto','hdpopcorns','kattv','library',
+    'moviesplanet','myprojectfreetv','odb','openloadmovie','ororo',
     'plocker','primewire','putlocker','reddit','seehd','series9','seriesfree',
     'seriesonline','streamlord','tvbox','videoscraper','vidics',
     'watchonline','watchseries','xmovies','xwatchseries','ymovies']

@@ -28,7 +28,7 @@
         <setting id="provider.123moviesgold" type="bool" label="$NUMBER[123]MOVIESGOLD" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.123netflix" type="bool" label="$NUMBER[123]NETFLIX" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.321movies" type="bool" label="$NUMBER[321]MOVIES" default="false" /> <!--Placenta-->
-        <setting id="provider.1080P" type="bool" label="$NUMBER[1080]P" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.1080P" type="bool" label="$NUMBER[1080]P" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.1123movies" type="bool" label="$NUMBER[1123]MOVIES" default="false" /> <!--Placenta-->
         <setting id="provider.afdah" type="bool" label="AFDAH" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.allrls" type="bool" label="ALLRLS" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
@@ -37,6 +37,7 @@
         <setting id="provider.bmoviez" type="bool" label="BMOVIEZ" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.bnwmovies" type="bool" label="BNWMOVIES" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.bob" type="bool" label="BOB" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.bobmovies" type="bool" label="BOBMOVIES" default="true" />
         <setting id="provider.cafehulu" type="bool" label="CAFEHULU" default="false" /> <!--Placenta-->
         <setting id="provider.cartoonhd" type="bool" label="CARTOONHD" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.cinemamega" type="bool" label="CINEMAMEGA" default="false" /> <!--Placenta-->
@@ -59,6 +60,7 @@
         <setting id="provider.furk" type="bool" label="FURK" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.genvideos" type="bool" label="GENVIDEOS" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.gogoanime" type="bool" label="GOGOANIME" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
+        <setting id="provider.gostream" type="bool" label="GOSTREAM" default="true" />
         <setting id="provider.gowatchseries" type="bool" label="GOWATCHSERIES" default="true" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.hd" type="bool" label="HD" default="false" /> <!--Placenta-->
         <setting id="provider.hdmega" type="bool" label="HDMEGA" default="false" /> <!--Placenta-->
@@ -81,8 +83,10 @@
         <setting id="provider.movie4kto" type="bool" label="MOVIE4KTO" default="false" /> <!--Placenta-->
         <setting id="provider.movie4uch" type="bool" label="MOVIE4UCH" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
         <setting id="provider.moviesgold" type="bool" label="MOVIESGOLD" default="false" /> <!--Placenta-->
+        <setting id="provider.moviesonline" type="bool" label="MOVIESONLINE" default="false" />
         <setting id="provider.moviesplanet" type="bool" label="MOVIESPLANET" default="true" /> <!--Incursion--> <!--Lambdascrapers-->
         <setting id="provider.moviexk" type="bool" label="MOVIEXK" default="false" /> <!--Placenta-->
+        <setting id="provider.myprojectfreetv" type="bool" label="MYPROJECTFREETV" default="true" />
         <setting id="provider.myputlock" type="bool" label="MYPUTLOCK" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.mywatchseries" type="bool" label="MYWATCHSERIES" default="false" /> <!--Incursion--> <!--Lambdascrapers-->
 <!--        <setting id="provider.mzmovies" type="bool" label="MZMOVIES" default="false" />--> <!--Incursion-->
@@ -105,7 +109,7 @@
         <setting id="provider.sezonlukdizi" type="bool" label="SEZONLUKDIZI" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.showbox" type="bool" label="SHOWBOX" default="false" /> <!--Lambdascrapers-->
         <setting id="provider.solarmovie" type="bool" label="SOLARMOVIE" default="false" /> <!--Incursion--> <!--Placenta-->
-        <setting id="provider.solarmoviez" type="bool" label="SOLARMOVIEZ" default="false" /> <!--Lambdascrapers-->
+        <setting id="provider.solarmoviez" type="bool" label="SOLARMOVIEZ" default="true" /> <!--Lambdascrapers-->
         <setting id="provider.streamlord" type="bool" label="STREAMLORD" default="true" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.sunmovies" type="bool" label="SUNMOVIES" default="false" /> <!--Placenta--> <!--Placenta-->
         <setting id="provider.timewatch" type="bool" label="TIMETOWATCH" default="false" /> <!--Placenta--> <!--Placenta-->
@@ -192,7 +196,6 @@
         <setting id="provider.directdl" type="bool" label="DIRECTDL" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.gomovies" type="bool" label="GOMOVIES" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
 <!--        <setting id="provider.hevcfilm" type="bool" label="HEVCFILM" default="false" />--> <!--Incursion--> <!--Placenta-->
-        <setting id="provider.moviesonline" type="bool" label="MOVIESONLINE" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.myvideolink" type="bool" label="MYVIDEOLINK" default="false" /> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.phazeddl" type="bool" label="PHAZEDLL" default="false" /> <!--Incursion--> <!--Placenta--> <!--Lambdascrapers-->
         <setting id="provider.power" type="bool" label="POWER" default="false" /> <!--Lambdascrapers-->

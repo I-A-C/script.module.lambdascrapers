@@ -12,6 +12,8 @@
 # Addon id: plugin.video.placenta
 # Addon Provider: Mr.Blamo
 
+# Scraper Checked and Fixed 11-08-2018 -JewBMX
+
 import re, urlparse, urllib, base64
 
 from resources.lib.modules import cleantitle
@@ -24,9 +26,10 @@ class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
-        self.domains = ['moviesonline.mx']
-        self.base_link = 'http://moviesonline.mx'
+        self.domains = ['moviesonline.gy','moviesonline.tl']
+        self.base_link = 'http://moviesonline.gy'
         self.search_link = '/search-movies/%s.html'
+# moviesonline.mx  is now ddos protected
 
 
     def movie(self, imdb, title, localtitle, aliases, year):

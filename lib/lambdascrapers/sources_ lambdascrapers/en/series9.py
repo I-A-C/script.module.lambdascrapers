@@ -17,10 +17,10 @@ class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
-        self.domains = ['seriesonline.io','series9.io','gomovies.pet']
-        self.base_link = 'https://series9.co/'
+        self.domains = ['series9.io','series9.co','seriesonline.io','series9.io','gomovies.pet']
+        self.base_link = 'https://series9.io'
         self.search_link = '/movie/search/%s'
-
+        
     def matchAlias(self, title, aliases):
         try:
             for alias in aliases:

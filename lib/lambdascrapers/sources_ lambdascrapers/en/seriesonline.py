@@ -1,24 +1,36 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 '''
-    seriesonline scraper for Exodus forks.
-    Nov 9 2018 - Checked
+    Eggman Add-on
 
-    Updated and refactored by someone.
-    Originally created by others.
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
-import re,urllib,urlparse
+
+import re
+import urllib
+import urlparse
 
 from resources.lib.modules import cleantitle
 from resources.lib.modules import client
 from resources.lib.modules import directstream
-from resources.lib.modules import cache
+
 
 class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
-        self.domains = ['seriesonline8.co']
-        self.base_link = 'https://www1.seriesonline8.co/'
+        self.domains = ['seriesonline.io']
+        self.base_link = 'https://www2.seriesonline8.co'
         self.search_link = '/movie/search/%s'
 
     def matchAlias(self, title, aliases):
@@ -47,7 +59,6 @@ class source:
         except:
             return
 
-
     def episode(self, url, imdb, tvdb, title, premiered, season, episode):
         try:
             if url == None: return
@@ -59,12 +70,12 @@ class source:
         except:
             return
 
-    def searchShow(self, title, season, aliases, headers):
+    def searchShow(self, title, season, aliases):
         try:
             title = cleantitle.normalize(title)
             search = '%s Season %01d' % (title, int(season))
             url = urlparse.urljoin(self.base_link, self.search_link % cleantitle.geturl(search))
-            r = client.request(url, headers=headers, timeout='15')
+            r = client.request(url, timeout='15')
             r = client.parseDOM(r, 'div', attrs={'class': 'ml-item'})
             r = zip(client.parseDOM(r, 'a', ret='href'), client.parseDOM(r, 'a', ret='title'))
             r = [(i[0], i[1], re.findall('(.*?)\s+-\s+Season\s+(\d)', i[1])) for i in r]
@@ -75,11 +86,11 @@ class source:
         except:
             return
 
-    def searchMovie(self, title, year, aliases, headers):
+    def searchMovie(self, title, year, aliases):
         try:
             title = cleantitle.normalize(title)
             url = urlparse.urljoin(self.base_link, self.search_link % cleantitle.geturl(title))
-            r = client.request(url, headers=headers, timeout='15')
+            r = client.request(url, timeout='15')
             r = client.parseDOM(r, 'div', attrs={'class': 'ml-item'})
             r = zip(client.parseDOM(r, 'a', ret='href'), client.parseDOM(r, 'a', ret='title'))
             results = [(i[0], i[1], re.findall('\((\d{4})', i[1])) for i in r]
@@ -107,22 +118,21 @@ class source:
             data = urlparse.parse_qs(url)
             data = dict([(i, data[i][0]) if data[i] else (i, '') for i in data])
             aliases = eval(data['aliases'])
-            headers = {}
 
             if 'tvshowtitle' in data:
                 ep = data['episode']
                 url = '%s/film/%s-season-%01d/watching.html?ep=%s' % (self.base_link, cleantitle.geturl(data['tvshowtitle']), int(data['season']), ep)
-                r = client.request(url, headers=headers, timeout='10', output='geturl')
+                r = client.request(url, timeout='10', output='geturl')
 
                 if url == None:
-                    url = self.searchShow(data['tvshowtitle'], data['season'], aliases, headers)
+                    url = self.searchShow(data['tvshowtitle'], data['season'], aliases)
 
             else:
-                url = self.searchMovie(data['title'], data['year'], aliases, headers)
+                url = self.searchMovie(data['title'], data['year'], aliases)
 
             if url == None: raise Exception()
 
-            r = client.request(url, headers=headers, timeout='10')
+            r = client.request(url, timeout='10')
             r = client.parseDOM(r, 'div', attrs={'class': 'les-content'})
             if 'tvshowtitle' in data:
                 ep = data['episode']
@@ -131,33 +141,22 @@ class source:
                 links = client.parseDOM(r, 'a', ret='player-data')
 
             for link in links:
-                if '123movieshd' in link or 'seriesonline' in link:
-                    r = client.request(link, headers=headers, timeout='10')
-                    r = re.findall('(https:.*?redirector.*?)[\'\"]', r)
+                try:
+                    host = re.findall('([\w]+[.][\w]+)$', urlparse.urlparse(link.strip().lower()).netloc)[0]
+                    if not host in hostDict: raise Exception()
+                    host = client.replaceHTMLCodes(host)
+                    host = host.encode('utf-8')
 
-                    for i in r:
-                        try: sources.append({'source': 'gvideo', 'quality': directstream.googletag(i)[0]['quality'], 'language': 'en', 'url': i, 'direct': True, 'debridonly': False})
-                        except: pass
-                else:
-                    try:
-                        host = re.findall('([\w]+[.][\w]+)$', urlparse.urlparse(link.strip().lower()).netloc)[0]
-                        if not host in hostDict: raise Exception()
-                        host = client.replaceHTMLCodes(host)
-                        host = host.encode('utf-8')
-
-                        sources.append({'source': host, 'quality': 'SD', 'language': 'en', 'url': link, 'direct': False, 'debridonly': False})
-                    except:
-                        pass
+                    sources.append({'source': host, 'quality': '720p', 'language': 'en', 'url': link, 'direct': False, 'debridonly': False})
+                except:
+                    pass
 
             return sources
         except:
             return sources
-
 
     def resolve(self, url):
         if "google" in url:
             return directstream.googlepass(url)
         else:
             return url
-
-

@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 """
     LambdaScrapers Module
 
@@ -33,7 +33,7 @@ from lambdascrapers.modules import control
 from lambdascrapers.modules import log_utils
 from lambdascrapers.modules import utils
 
-BASE_URL = 'http://api.trakt.tv'
+BASE_URL = 'https://api.trakt.tv'
 V2_API_KEY = '42740047aba33b1f04c1ba3893ce805a9ecfebd05de544a30fe0c99fabec972e'
 CLIENT_SECRET = 'c7a3e7fdf5c3863872c8f45e1d3f33797b492ed574a00a01a3fadcb3d270f926'
 REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob'

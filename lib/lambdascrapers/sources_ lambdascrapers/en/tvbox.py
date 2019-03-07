@@ -1,17 +1,28 @@
-# -*- coding: UTF-8 -*-
-'''
-    tvbox scraper for Exodus forks.
-    Nov 9 2018 - Checked
+# -*- coding: utf-8 -*-
 
-    Updated and refactored by someone.
-    Originally created by others.
-'''
-import re,urllib,urlparse,json,base64,hashlib,time
+"""
+    Eggman Add-on
 
-from resources.lib.modules import cleantitle
-from resources.lib.modules import client
-from resources.lib.modules import source_utils
-from resources.lib.modules import dom_parser
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+
+import re
+import urllib
+import urlparse
+
+from resources.lib.modules import cleantitle, client, dom_parser, log_utils
+
 
 class source:
     def __init__(self):
@@ -22,17 +33,17 @@ class source:
         self.search_link = 'search?q=%s'
         self.search_link_movie = 'https://tvbox.ag/movies'
 
-
     def movie(self, imdb, title, localtitle, aliases, year):
         try:
-            url = urlparse.urljoin(self.base_link, self.search_link %cleantitle.geturl(title).replace('-','+'))
+            url = urlparse.urljoin(self.base_link, self.search_link % cleantitle.geturl(title).replace('-', '+'))
             r = client.request(url, cookie='check=2')
             m = dom_parser.parse_dom(r, 'div', attrs={'class': 'masonry'})
             m = dom_parser.parse_dom(m, 'a', req='href')
             m = [(i.attrs['href']) for i in m if i.content == title]
-            url = urlparse.urljoin(self.base_link,m[0])
+            if m is not None:
+                url = urlparse.urljoin(self.base_link, m[0])
             return url
-        except:
+        except Exception:
             return
 
     def tvshow(self, imdb, tvdb, tvshowtitle, localtvshowtitle, aliases, year):
@@ -40,42 +51,46 @@ class source:
             url = {'imdb': imdb, 'tvdb': tvdb, 'tvshowtitle': tvshowtitle, 'year': year}
             url = urllib.urlencode(url)
             return url
-        except:
+        except Exception:
             return
 
     def episode(self, url, imdb, tvdb, title, premiered, season, episode):
         try:
-            if url == None: return
+            if url is None:
+                return
             data = urlparse.parse_qs(url)
             data = dict((i, data[i][0]) for i in data)
-            url = urlparse.urljoin(self.base_link, self.search_link %cleantitle.geturl(data['tvshowtitle']).replace('-','+'))
+            url = urlparse.urljoin(self.base_link, self.search_link %
+                                   cleantitle.geturl(data['tvshowtitle']).replace('-', '+'))
             r = client.request(url, cookie='check=2')
             m = dom_parser.parse_dom(r, 'div', attrs={'class': 'masonry'})
             m = dom_parser.parse_dom(m, 'a', req='href')
             m = [(i.attrs['href']) for i in m if i.content == data['tvshowtitle']]
-            query = '%s/season-%s/episode-%s/'%(m[0],season,episode)
-            url = urlparse.urljoin(self.base_link,query)
+            query = '%s/season-%s/episode-%s/' % (m[0], season, episode)
+            url = urlparse.urljoin(self.base_link, query)
             return url
-        except:
+        except Exception:
             return
 
     def sources(self, url, hostDict, hostprDict):
         try:
             sources = []
 
-            if url == None: return
+            if url is None:
+                return
             r = client.request(url, cookie='check=2')
 
             m = dom_parser.parse_dom(r, 'table', attrs={'class': 'show_links'})[0]
-            links = re.findall('k">(.*?)<.*?f="(.*?)"',m.content)
+            links = re.findall('k">(.*?)<.*?f="(.*?)"', m.content)
             for link in links:
                 try:
-                    sources.append({'source': link[0], 'quality': 'SD', 'language': 'en', 'url': link[1], 'direct': False, 'debridonly': False})
-                except:
+                    sources.append({'source': link[0], 'quality': 'SD', 'language': 'en',
+                                    'url': link[1], 'direct': False, 'debridonly': False})
+                except Exception:
                     pass
 
             return sources
-        except:
+        except Exception:
             return sources
 
     def resolve(self, url):

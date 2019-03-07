@@ -1,6 +1,5 @@
+# -*- coding: utf-8 -*-
 """
-    resolveurl XBMC Addon
-    Copyright (C) 2013 Bstrdsmkr
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,17 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-    Adapted for use in xbmc from:
-    https://github.com/einars/js-beautify/blob/master/python/jsbeautifier/unpackers/packer.py
-    
-    usage:
-
-    if detect(some_string):
-        unpacked = unpack(some_string)
-
-
-Unpacker for Dean Edward's p.a.c.k.e.r
 """
 
 import re

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import urlparse
 from lambdascrapers.modules import control
 from lambdascrapers import providerSources, providerNames
@@ -49,17 +51,12 @@ if mode == "toggleAll":
     toggleAll(params['setting'], open_id, sourceList=sourcelist)
 
 if mode == "toggleAllDebrid":
-    sourcelist = ['2ddl','300mbfilms','bestmoviez','ddls','ddlvalley','directdl','gomovies','hevcfilm',
-    'myvideolink','phazeddl','power','releasebb','RLSB','rlsbb','rlsmovies','rlsscn',
-    'scenerls','sceper','seriescr','tvbmoviez','tvrelease','ultrahd','ultrahdindir','wrzcraft']
+    sourcelist = ['300mbfilms','bestmoviez','ddlvalley','ddlspot','directdl','invictus','myvideolink',
+    'playmovies','scenerls','ultrahdindir','wrzcraft','iwantmyshow','moviesleak']
     toggleAll(params['setting'], params['open_id'], sourcelist)
 
 if mode == "toggleAllGerman":
-    sourcelist = ['allucde','animebase','animeloads','bs','cine','cinenator','ddl',
-    'filmpalast','foxx','hdfilme','hdstreams','horrorkino','iload','kinodogs','kinoking',
-    'kinow','kinox','lichtspielhaus','movie2k-ac','movie2k-ag','movie2z','movie4k','moviesever',
-    'movietown','netzkino','proxer','pureanime','serienstream','seriesever','stream-to',
-    'streamdream','streamflix','streamit','tata','video4k','view4u']
+    sourcelist = ['gamatotv','liomenoi','tainiesonline','tainiomania','xrysoi']
     toggleAll(params['setting'], params['open_id'], sourcelist)
 
 if mode == "toggleAllPolish":
@@ -67,23 +64,25 @@ if mode == "toggleAllPolish":
     'filmwebbooster','iitv','movieneo','openkatalog','paczamy','segos','szukajkatv','trt']
     toggleAll(params['setting'], params['open_id'], sourcelist)
 
+if mode == "toggleAllSpanish":
+    sourcelist = ['megapelistv','peliculasdk','pelisplustv','pepecine','seriespapaya']
+    toggleAll(params['setting'], params['open_id'], sourcelist)
+
 if mode == "toggleAllForeign":
-    sourcelist = ['allucde','animebase','animeloads','bs','cine','cinenator','ddl',
-    'filmpalast','foxx','hdfilme','hdstreams','horrorkino','iload','kinodogs','kinoking',
-    'kinow','kinox','lichtspielhaus','movie2k-ac','movie2k-ag','movie2z','movie4k','moviesever',
-    'movietown','netzkino','proxer','pureanime','serienstream','seriesever','stream-to',
-    'streamdream','streamflix','streamit','tata','video4k','view4u',
+    sourcelist = ['gamatotv','liomenoi','tainiesonline','tainiomania','xrysoi',
     'alltube','boxfilm','cdahd','cdax','ekinomaniak','ekinotv','filiser',
-    'filmwebbooster','iitv','movieneo','openkatalog','paczamy','segos','szukajkatv','trt']
+    'filmwebbooster','iitv','movieneo','openkatalog','paczamy','segos',
+    'szukajkatv','trt','megapelistv','peliculasdk','pelisplustv','pepecine','seriespapaya']
+    toggleAll(params['setting'], params['open_id'], sourcelist)
+
+if mode == "toggleAllTorrent":
+    sourcelist = ['bitlord','torrentapi','yify','piratebay','eztv','zoogle','glodls','limetorrents','torrentdownloads']
     toggleAll(params['setting'], params['open_id'], sourcelist)
 
 if mode == "Defaults":
-    sourcelist = ['4kmovieto','1080P','bobmovies','bnwmovies',
-    'cartoonhd','coolmoviezone','darewatch','divxcrawler',
-    'fmovies','freefmovies','freeputlockers','furk','gostream',
-    'gowatchseries','Hdmto','hdpopcorns','kattv','library',
-    'moviesplanet','myprojectfreetv','odb','openloadmovie','ororo',
-    'plocker','primewire','putlocker','reddit','seehd','series9','seriesfree',
-    'seriesonline','streamlord','tvbox','videoscraper','vidics',
-    'watchonline','watchseries','xmovies','xwatchseries','ymovies']
+    sourcelist = ['123fox','123hbo','123movieshubz','animetoon','azmovies','bnwmovies','cartoonhd',
+    'extramovies','fmovies','freefmovies','freeputlockers','gostream','Hdmto','hdpopcorns',
+    'kattv','l23movies','iwaatch','openloadmovie','primewire','putlocker','reddit','rlsbb','scenerls',
+    'seehd','series9','seriesfree','seriesonline','solarmoviez','tvbox','vidics','watchseries',
+    'xwatchseries','vdonip','odb','downflix','ymovies','ddlspot','filmxy','kickass2','sezonlukdizi']
     toggleAll(params['setting'], params['open_id'], sourcelist)

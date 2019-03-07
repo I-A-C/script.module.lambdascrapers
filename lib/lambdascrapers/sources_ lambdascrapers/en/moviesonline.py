@@ -27,7 +27,7 @@ class source:
         self.priority = 1
         self.language = ['en']
         self.domains = ['moviesonline.gy','moviesonline.tl']
-        self.base_link = 'http://moviesonline.gy'
+        self.base_link = 'http://www1.moviesonline.gy'
         self.search_link = '/search-movies/%s.html'
 # moviesonline.mx  is now ddos protected
 

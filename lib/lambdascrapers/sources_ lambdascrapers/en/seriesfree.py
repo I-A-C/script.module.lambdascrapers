@@ -18,7 +18,7 @@ from resources.lib.modules import dom_parser
 
 class source:
     def __init__(self):
-        self.priority = 0
+        self.priority = 1
         self.language = ['en']
         self.domains = ['watchseriesfree.to','seriesfree.to']
         self.base_link = 'https://seriesfree.to'

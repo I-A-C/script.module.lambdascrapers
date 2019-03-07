@@ -27,14 +27,13 @@ class source:
         self.domains = ['l23movies.com']
         self.base_link = 'http://l23movies.com'
         self.movies_search_path = ('search-movies/%s.html')
-        scraper = cfscrape.create_scraper()
+        self.scraper = cfscrape.create_scraper()
 
     def movie(self, imdb, title, localtitle, aliases, year):
         try:
-            scraper = cfscrape.create_scraper()
             clean_title = cleantitle.geturl(title).replace('-','+')
             url = urlparse.urljoin(self.base_link, (self.movies_search_path % clean_title))
-            r = scraper.get(url).content
+            r = self.scraper.get(url).content
 
             r = dom_parser2.parse_dom(r, 'div', {'id': 'movie-featured'})
             r = [dom_parser2.parse_dom(i, 'a', req=['href']) for i in r if i]
@@ -57,8 +56,7 @@ class source:
     def sources(self, url, hostDict, hostprDict):
         try:
             sources = []
-            scraper = cfscrape.create_scraper()
-            r = scraper.get(url).content
+            r = self.scraper.get(url).content
             r = dom_parser2.parse_dom(r, 'p', {'class': 'server_play'})
             r = [dom_parser2.parse_dom(i, 'a', req=['href']) for i in r if i]
             r = [(i[0].attrs['href'], re.search('/(\w+).html', i[0].attrs['href'])) for i in r if i]
@@ -84,8 +82,7 @@ class source:
             
     def resolve(self, url):
         try:
-            scraper = cfscrape.create_scraper()
-            r = scraper.get(url).content
+            r = self.scraper.get(url).content
             url = re.findall('document.write.+?"([^"]*)', r)[0]
             url = base64.b64decode(url)
             url = re.findall('src="([^"]*)', url)[0]

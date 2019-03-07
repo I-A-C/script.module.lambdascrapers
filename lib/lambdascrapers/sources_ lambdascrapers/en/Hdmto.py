@@ -12,7 +12,7 @@ import urlparse
 from resources.lib.modules import cleantitle
 from resources.lib.modules import client
 from resources.lib.modules import proxy
-
+from resources.lib.modules import cfscrape
 
 class source:
     def __init__(self):
@@ -20,6 +20,7 @@ class source:
         self.language = ['en']
         self.domains = ['hdm.to']
         self.base_link = 'https://hdm.to'
+        self.scraper = cfscrape.create_scraper()
 
     def movie(self, imdb, title, localtitle, aliases, year):
         try:
@@ -32,7 +33,7 @@ class source:
         try:
             sources = []
             url = '%s/%s/' % (self.base_link,url)
-            r = client.request(url)
+            r = self.scraper.get(url).content
             try:
                 match = re.compile('<iframe.+?src="(.+?)"').findall(r)
                 for url in match:

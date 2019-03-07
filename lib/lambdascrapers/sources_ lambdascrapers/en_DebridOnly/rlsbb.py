@@ -1,12 +1,23 @@
-# -*- coding: UTF-8 -*-
-'''
-    rlsbb scraper for Exodus forks.
-    Sep 5 2018 - Cleaned and Checked
+# -*- coding: utf-8 -*-
 
-    Updated and refactored by someone.
-    Originally created by others.
 '''
-import re,traceback,urllib,urlparse,json
+    Eggman Add-on
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
+
+import re,urllib,urlparse,json
 
 from resources.lib.modules import cleantitle
 from resources.lib.modules import client
@@ -14,14 +25,15 @@ from resources.lib.modules import control
 from resources.lib.modules import debrid
 from resources.lib.modules import log_utils
 from resources.lib.modules import source_utils
+from resources.lib.modules import cfscrape
 
 class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
-        self.domains = ['rlsbb.to']
-        self.base_link = 'http://rlsbb.to'
-        self.search_base_link = 'http://search.rlsbb.to'
+        self.domains = ['rlsbb.ru']
+        self.base_link = 'http://rlsbb.ru'
+        self.search_base_link = 'http://search.rlsbb.ru'
         self.search_cookie = 'serach_mode=rlsbb'
         self.search_link = '/lib/search526049.php?phrase=%s&pindex=1&content=true'
 
@@ -31,8 +43,6 @@ class source:
             url = urllib.urlencode(url)
             return url
         except:
-            failure = traceback.format_exc()
-            log_utils.log('RLSBB - Exception: \n' + str(failure))
             return
 
     def tvshow(self, imdb, tvdb, tvshowtitle, localtvshowtitle, aliases, year):
@@ -41,8 +51,6 @@ class source:
             url = urllib.urlencode(url)
             return url
         except:
-            failure = traceback.format_exc()
-            log_utils.log('RLSBB - Exception: \n' + str(failure))
             return
 
     def episode(self, url, imdb, tvdb, title, premiered, season, episode):
@@ -55,20 +63,19 @@ class source:
             url = urllib.urlencode(url)
             return url
         except:
-            failure = traceback.format_exc()
-            log_utils.log('RLSBB - Exception: \n' + str(failure))
             return
 
     def sources(self, url, hostDict, hostprDict):
         try:
             sources = []
+            scraper = cfscrape.create_scraper()
 
             if url == None: return sources
 
             if debrid.status() == False: raise Exception()
 
-            data = urlparse.parse_qs(url)         
-            data = dict([(i, data[i][0]) if data[i] else (i, '') for i in data])        
+            data = urlparse.parse_qs(url)
+            data = dict([(i, data[i][0]) if data[i] else (i, '') for i in data])
             title = data['tvshowtitle'] if 'tvshowtitle' in data else data['title']
             hdlr = 'S%02dE%02d' % (int(data['season']), int(data['episode'])) if 'tvshowtitle' in data else data['year']
             premDate = ''
@@ -85,10 +92,10 @@ class source:
             url = self.search_link % urllib.quote_plus(query)
             url = urlparse.urljoin(self.base_link, url)
 
-            url = "http://rlsbb.to/" + query                                # this overwrites a bunch of previous lines!
-            if 'tvshowtitle' not in data: url = url + "-1080p"				# NB: I don't think this works anymore! 2b-checked. 
+            url = "http://rlsbb.ru/" + query                                
+            if 'tvshowtitle' not in data: url = url + "-1080p"				 
 
-            r = client.request(url)                                         # curl as DOM object
+            r = scraper.get(url).content                                         
             
             if r == None and 'tvshowtitle' in data:
                 season = re.search('S(.*?)E', hdlr)
@@ -99,42 +106,37 @@ class source:
                 query = query.replace("&", "and")
                 query = query.replace("  ", " ")
                 query = query.replace(" ", "-")
-                url = "http://rlsbb.to/" + query
-                r = client.request(url)
+                url = "http://rlsbb.ru/" + query
+                r = scraper.get(url).content
 
-            # looks like some shows have had episodes from the current season released in s00e00 format before switching to YYYY-MM-DD
-            # this causes the second fallback search above for just s00 to return results and stops it from searching by date (ex. http://rlsbb.to/vice-news-tonight-s02)
-            # so loop here if no items found on first pass and force date search second time around
+            
             for loopCount in range(0,2):
-                if loopCount == 1 or (r == None and 'tvshowtitle' in data):                     # s00e00 serial failed: try again with YYYY-MM-DD
-                    # http://rlsbb.to/the-daily-show-2018-07-24                                 ... example landing urls
-                    # http://rlsbb.to/stephen-colbert-2018-07-24                                ... case and "date dots" get fixed by rlsbb
-                    #query= re.sub('(\\\|/| -|:|;|\*|\?|"|\'|<|>|\|)','',data['tvshowtitle'])   # this RE copied from above is just trash
+                if loopCount == 1 or (r == None and 'tvshowtitle' in data):                     
                     
-                    premDate = re.sub('[ \.]','-',data['premiered'])                            # date looks usually YYYY-MM-DD but dunno if always
-                    query = re.sub('[\\\\:;*?"<>|/\-\']', '', data['tvshowtitle'])              # quadruple backslash = one backslash :p
-                    query = query.replace("&", " and ").replace("  ", " ").replace(" ", "-")    # throw in extra spaces around & just in case
+                    
+                    premDate = re.sub('[ \.]','-',data['premiered'])                            
+                    query = re.sub('[\\\\:;*?"<>|/\-\']', '', data['tvshowtitle'])              
+                    query = query.replace("&", " and ").replace("  ", " ").replace(" ", "-")    
                     query = query + "-" + premDate                      
                     
                     url = "http://rlsbb.to/" + query            
-                    url = url.replace('The-Late-Show-with-Stephen-Colbert','Stephen-Colbert')   # 
-                    #url = url.replace('Some-Specific-Show-Title-No2','Scene-Title2')           # shows I want...
-                    #url = url.replace('Some-Specific-Show-Title-No3','Scene-Title3')           #         ...but theTVDB title != Scene release
-
-                    r = client.request(url)
+                    url = url.replace('The-Late-Show-with-Stephen-Colbert','Stephen-Colbert')   
                     
-                posts = client.parseDOM(r, "div", attrs={"class": "content"})   # get all <div class=content>...</div>
-                hostDict = hostprDict + hostDict                                # ?
+
+                    r = scraper.get(url).content
+                    
+                posts = client.parseDOM(r, "div", attrs={"class": "content"})
+                hostDict = hostprDict + hostDict
                 items = []
                 for post in posts:
                     try:
-                        u = client.parseDOM(post, 'a', ret='href')              # get all <a href=..... </a>
-                        for i in u:                                             # foreach href url
+                        u = client.parseDOM(post, 'a', ret='href')
+                        for i in u:
                             try:
                                 name = str(i)
                                 if hdlr in name.upper(): items.append(name)
-                                elif len(premDate) > 0 and premDate in name.replace(".","-"): items.append(name)      # s00e00 serial failed: try again with YYYY-MM-DD
-                                # NOTE: the vast majority of rlsbb urls are just hashes! Future careful link grabbing would yield 2x or 3x results
+                                elif len(premDate) > 0 and premDate in name.replace(".","-"): items.append(name)      
+                                
                             except:
                                 pass
                     except:
@@ -166,22 +168,22 @@ class source:
                         quality = 'HD'
                     elif '1080p' in host2:
                         quality = '1080p'
+                    elif '2160p' in host2:
+                        quality = '4K'
                     else:
                         quality = 'SD'
 
                     info = ' | '.join(info)
                     host = client.replaceHTMLCodes(host)
                     host = host.encode('utf-8')
-                    sources.append({'source': host, 'quality': quality, 'language': 'en', 'url': host2, 'info': info, 'direct': False, 'debridonly': True})
-                    # why is this hardcoded to debridonly=True? seems like overkill but maybe there's a resource-management reason?
+                    sources.append({'source': host, 'quality': quality, 'language': 'en', 'url': host2, 'info': info, 'direct': False, 'debridonly': False})
+                    
                 except:
                     pass
             check = [i for i in sources if not i['quality'] == 'CAM']
             if check: sources = check
             return sources
         except:
-            failure = traceback.format_exc()
-            log_utils.log('RLSBB - Exception: \n' + str(failure))
             return sources
 
     def resolve(self, url):

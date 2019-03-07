@@ -4,8 +4,8 @@ import re
 import subprocess
 from copy import deepcopy
 from time import sleep
-import requests #from Magicality
-from resources.lib.modules import cfdecoder #from Magicality
+import requests
+from lambdascrapers.modules import cfdecoder
 
 from requests.sessions import Session
 
@@ -72,43 +72,24 @@ class CloudflareScraper(Session):
         return resp
 
     def solve_cf_challenge(self, resp, **original_kwargs):
-        sleep(self.delay)  # Cloudflare requires a delay before solving the challenge
-
+        sleep(5)  # Cloudflare requires a delay before solving the challenge
         body = resp.text
         parsed_url = urlparse(resp.url)
-        domain = parsed_url.netloc
+        domain = urlparse(resp.url).netloc
         submit_url = "%s://%s/cdn-cgi/l/chk_jschl" % (parsed_url.scheme, domain)
 
         cloudflare_kwargs = deepcopy(original_kwargs)
         params = cloudflare_kwargs.setdefault("params", {})
         headers = cloudflare_kwargs.setdefault("headers", {})
         headers["Referer"] = resp.url
-
-        try:
-            params["jschl_vc"] = re.search(r'name="jschl_vc" value="(\w+)"', body).group(1)
-            params["pass"] = re.search(r'name="pass" value="(.+?)"', body).group(1)
-
-        except Exception as e:
-            # Something is wrong with the page.
-            # This may indicate Cloudflare has changed their anti-bot
-            # technique. If you see this and are running the latest version,
-            # please open a GitHub issue so I can update the code accordingly.
-            raise ValueError("Unable to parse Cloudflare anti-bots page: %s %s" % (e.message, BUG_REPORT))
-
-        # Solve the Javascript challenge
-        params["jschl_answer"] = str(self.solve_challenge(body) + len(domain))
-
-        # Requests transforms any request into a GET after a redirect,
-        # so the redirect has to be handled manually here to allow for
-        # performing other types of requests even as the first request.
+        request = {}
+        request['data'] = body
+        request['url'] = resp.url
+        request['headers'] = resp.headers
+        submit_url = cfdecoder.Cloudflare(request).get_url()
         method = resp.request.method
         cloudflare_kwargs["allow_redirects"] = False
         redirect = self.request(method, submit_url, **cloudflare_kwargs)
-
-        redirect_location = urlparse(redirect.headers["Location"])
-        if not redirect_location.netloc:
-            redirect_url = "%s://%s%s" % (parsed_url.scheme, domain, redirect_location.path)
-            return self.request(method, redirect_url, **original_kwargs)
         return self.request(method, redirect.headers["Location"], **original_kwargs)
 
     def solve_challenge(self, body):

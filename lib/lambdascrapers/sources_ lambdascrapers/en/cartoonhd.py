@@ -19,8 +19,8 @@ class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
-        self.domains = ['cartoonhd.care']
-        self.base_link = 'https://cartoonhd.care'
+        self.domains = ['cartoonhd.watch','cartoonhd.care']
+        self.base_link = 'https://cartoonhd.watch'
 
     def movie(self, imdb, title, localtitle, aliases, year):
         try:
